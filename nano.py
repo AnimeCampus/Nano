@@ -1,5 +1,6 @@
 from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import random
 
 # Set your bot token here
 TOKEN = '6206599982:AAG374J4c9eb0v2-3cbDMq4yjj97PuMIyB0'
@@ -11,12 +12,24 @@ API_HASH = '12bbd720f4097ba7713c5e40a11dfd2a'
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 
+
+
+greeting_images = [
+    '360_F_87970620_Tdgw6WYdWnrZHn2uQwJpVDH4vr4PINScjpg',
+    'image2.jpg',
+    'image3.jpg',
+    # Add more image filenames here
+]
+
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    # Send greeting image
+    # Select a random greeting image
+    random_image = random.choice(greeting_images)
+    
+    # Send the selected greeting image
     client.send_photo(
         chat_id=message.chat.id,
-        photo='360_F_87970620_Tdgw6WYdWnrZHn2uQwJpVDH4vr4PINSc.jpg',
+        photo=random_image,
         caption='Welcome to the Telegram Bot!\nTry /help'
     )
 
