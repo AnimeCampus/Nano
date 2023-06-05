@@ -15,7 +15,7 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    client.send_message(chat_id=message.chat.id, text='Welcome to the Telegram Bot!')
+    client.send_message(chat_id=message.chat.id, text='Welcome to the Telegram Bot!\n try /help ')
 
 
 @app.on_message(filters.command("help"))
@@ -23,16 +23,16 @@ def help_command(client, message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Instagram", url="https://www.instagram.com/your_instagram_account"),
-                InlineKeyboardButton("GitHub", url="https://github.com/your_repository")
+                InlineKeyboardButton("Instagram", url="https://www.instagram.com/itz_kunu_g"),
+                InlineKeyboardButton("GitHub", url="https://github.com/?")
             ],
             [
-                InlineKeyboardButton("WhatsApp", url="https://wa.me/123456789"),
-                InlineKeyboardButton("Telegram", url="https://t.me/your_group")
+                InlineKeyboardButton("WhatsApp", url="https://wa.me/+15614040726"),
+                InlineKeyboardButton("Telegram", url="https://t.me/SexyNano")
             ]
         ]
     )
-    client.send_message(chat_id=message.chat.id, text="How can I assist you?", reply_markup=keyboard)
+    client.send_message(chat_id=message.chat.id, text="This is my some social media acc", reply_markup=keyboard)
 
 
 @app.on_message(filters.command("instagram"))
