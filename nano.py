@@ -13,8 +13,12 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    client.send_message(chat_id=message.chat.id, text='Welcome to the Telegram Bot!\nTry /help')
-
+    # Send greeting image
+    client.send_photo(
+        chat_id=message.chat.id,
+        photo='https://example.com/welcome.jpg',
+        caption='Welcome to the Telegram Bot!\nTry /help'
+    )
 
 @app.on_message(filters.command("help"))
 def help_command(client, message):
