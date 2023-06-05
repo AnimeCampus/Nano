@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Set your bot token here
@@ -97,7 +97,8 @@ def handle_callback(client, callback_query):
     if data == "btn1":
         client.send_message(chat_id=message.chat.id, text="You clicked Button button 1") 
 
-        
+app.run()
+idle()
        
     
 print("bot started')
