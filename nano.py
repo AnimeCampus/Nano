@@ -16,7 +16,7 @@ def start_command(client, message):
     # Send greeting image
     client.send_photo(
         chat_id=message.chat.id,
-        photo='https://example.com/welcome.jpg',
+        photo='360_F_87970620_Tdgw6WYdWnrZHn2uQwJpVDH4vr4PINSc.jpg',
         caption='Welcome to the Telegram Bot!\nTry /help'
     )
 
