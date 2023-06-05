@@ -101,4 +101,3 @@ app.run()
 idle()
        
     
-print("bot started')
