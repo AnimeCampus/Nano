@@ -50,22 +50,22 @@ def help_command(client, message):
 
 @app.on_message(filters.command("instagram"))
 def instagram_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Follow us on Instagram: @your_instagram_account")
+    client.send_message(chat_id=message.chat.id, text="Follow us on Instagram: @itz_kunu_g")
 
 
 @app.on_message(filters.command("whatsapp"))
 def whatsapp_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Contact us on WhatsApp: +123456789")
+    client.send_message(chat_id=message.chat.id, text="Contact us on WhatsApp: +15614040726")
 
 
 @app.on_message(filters.command("telegram"))
 def telegram_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Join our Telegram group: t.me/your_group")
+    client.send_message(chat_id=message.chat.id, text="Join our Telegram group: t.me/Anime_Krew")
 
 
 @app.on_message(filters.command("github"))
 def github_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Check out our GitHub repository: github.com/your_repository")
+    client.send_message(chat_id=message.chat.id, text="Check out our GitHub repository: github.com/Soon")
 
 
 @app.on_message(filters.command("echo"))
@@ -111,8 +111,30 @@ def handle_callback(client, callback_query):
     data = callback_query.data
     message = callback_query.message
     if data == "btn1":
-        client.send_message(chat_id=message.chat.id, text="You clicked Button button 1") 
+        client.send_message(chat_id=message.chat.id, text="You clicked button 1") 
 
+@app.on_callback_query()
+def handle_callback(client, callback_query):
+    data = callback_query.data
+    message = callback_query.message
+    if data == "btn2":
+        client.send_message(chat_id=message.chat.id, text="You clicked button 2") 
+
+        
+@app.on_callback_query()
+def handle_callback(client, callback_query):
+    data = callback_query.data
+    message = callback_query.message
+    if data == "btn3":
+        client.send_message(chat_id=message.chat.id, text="You clicked button 3") 
+     
+@app.on_callback_query()
+def handle_callback(client, callback_query):
+    data = callback_query.data
+    message = callback_query.message
+    if data == "btn4":
+        client.send_message(chat_id=message.chat.id, text="You clicked button 4") 
+        
 app.run()
 idle()
        
