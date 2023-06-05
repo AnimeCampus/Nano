@@ -96,3 +96,8 @@ def handle_callback(client, callback_query):
     message = callback_query.message
     if data == "btn1":
         client.send_message(chat_id=message.chat.id, text="You clicked Button button 1") 
+
+        
+       
+    
+print("bot started')
