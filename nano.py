@@ -12,26 +12,25 @@ API_HASH = '12bbd720f4097ba7713c5e40a11dfd2a'
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 
+import requests
 
-
-greeting_images = [
-    'https://graph.org/file/e0795047c8894864442ad.jpg',
-    'https://graph.org/file/03e0a8175f7c66e56b8d9.jpg',
-    'https://graph.org/file/8629469fb4e00f32d2a6f.jpg',
-    # Add more image filenames here
-]
+UNSPLASH_ACCESS_KEY = '7n5Bd_ol2Uo_3Tkv8t759JYr90kRTboHWOAiy00FtW8'
 
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    # Select a random greeting image
-    random_image = random.choice(greeting_images)
-    
-    # Send the selected greeting image
-    client.send_photo(
-        chat_id=message.chat.id,
-        photo=random_image,
-        caption='Welcome to the Telegram Bot!\nTry /help'
-    )
+    # Fetch a random image from the Unsplash API
+    url = f'https://api.unsplash.com/photos/random?client_id={UNSPLASH_ACCESS_KEY}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        json_data = response.json()
+        if 'urls' in json_data and 'regular' in json_data['urls']:
+            image_url = json_data['urls']['regular']
+            # Send the fetched image as a photo message
+            client.send_photo(
+                chat_id=message.chat.id,
+                photo=image_url,
+                caption='Welcome to the Telegram Bot!\nTry /help'
+            )
 
 @app.on_message(filters.command("help"))
 def help_command(client, message):
