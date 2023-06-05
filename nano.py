@@ -1,6 +1,7 @@
-from pyrogram import Client, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, InlineKeyboardButton
 from pyrogram import filters, idle
 from pyrogram import Config
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Set your bot token here
 TOKEN = '6206599982:AAG374J4c9eb0v2-3cbDMq4yjj97PuMIyB0'
