@@ -15,7 +15,7 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 
 greeting_images = [
-    '360_F_87970620_Tdgw6WYdWnrZHn2uQwJpVDH4vr4PINScjpg',
+    'https://graph.org/file/e0795047c8894864442ad.jpg',
     'https://graph.org/file/03e0a8175f7c66e56b8d9.jpg',
     'https://graph.org/file/8629469fb4e00f32d2a6f.jpg',
     # Add more image filenames here
