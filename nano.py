@@ -14,23 +14,28 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 import requests
 
-UNSPLASH_ACCESS_KEY = '7n5Bd_ol2Uo_3Tkv8t759JYr90kRTboHWOAiy00FtW8'
+# Replace 'YOUR_PIXABAY_API_KEY' with your own Pixabay API key
+PIXABAY_API_KEY = '37055792-a3457117bfde7b1012045092b'
 
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    # Fetch a random image from the Unsplash API
-    url = f'https://api.unsplash.com/photos/random?client_id={UNSPLASH_ACCESS_KEY}'
+    # Fetch a random image from the Pixabay API
+    url = f'https://pixabay.com/api/?key={PIXABAY_API_KEY}&per_page=100'
     response = requests.get(url)
     if response.status_code == 200:
         json_data = response.json()
-        if 'urls' in json_data and 'regular' in json_data['urls']:
-            image_url = json_data['urls']['regular']
-            # Send the fetched image as a photo message
-            client.send_photo(
-                chat_id=message.chat.id,
-                photo=image_url,
-                caption='Welcome to the Telegram Bot!\nTry /help'
-            )
+        if 'hits' in json_data:
+            hits = json_data['hits']
+            if hits:
+                random_image = random.choice(hits)
+                if 'webformatURL' in random_image:
+                    image_url = random_image['webformatURL']
+                    # Send the fetched image as a photo message
+                    client.send_photo(
+                        chat_id=message.chat.id,
+                        photo=image_url,
+                        caption='Welcome to the Telegram Bot!\nTry /help'
+                    )
 
 @app.on_message(filters.command("help"))
 def help_command(client, message):
