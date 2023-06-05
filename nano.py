@@ -1,6 +1,5 @@
 from pyrogram import Client
 from pyrogram import filters, idle
-from pyrogram import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Set your bot token here
@@ -10,9 +9,8 @@ TOKEN = '6206599982:AAG374J4c9eb0v2-3cbDMq4yjj97PuMIyB0'
 API_ID = '16743442'
 API_HASH = '12bbd720f4097ba7713c5e40a11dfd2a'
 
-app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, config=Config(
-    bot_token=TOKEN
-))
+app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN) 
+    
 
 
 @app.on_message(filters.command("start"))
