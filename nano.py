@@ -43,10 +43,6 @@ def help_command(client, message):
     help_text = "Available commands:\n\n" \
                 "/start - Start the bot\n" \
                 "/help - Display this help message\n" \
-                "/instagram - Follow us on Instagram\n" \
-                "/whatsapp - Contact us on WhatsApp\n" \
-                "/telegram - Join our Telegram group\n" \
-                "/github - Check out our GitHub repository\n" \
                 "/echo [text] - Echo back the provided text\n" \
                 "/caps [text] - Capitalize the provided text\n" \
                 "/inline - Show an example of an inline keyboard"
