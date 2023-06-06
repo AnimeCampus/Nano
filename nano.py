@@ -173,6 +173,34 @@ def handle_callback(client, callback_query):
     elif data == "btn4":
         client.send_message(chat_id=message.chat.id, text="You clicked button 4")
 
+        
+import requests
+import urllib.parse
+
+@app.on_message(filters.command("img"))
+def send_image(client, message):
+    # Get the query from the command arguments
+    command_args = message.command[1:]  # Exclude the command itself
+    query = ' '.join(command_args) if command_args else 'random'
+
+    # Fetch an image based on the user's query from the Pixabay API
+    encoded_query = urllib.parse.quote(query)
+    url = f'https://pixabay.com/api/?key={PIXABAY_API_KEY}&q={encoded_query}&image_type=photo&per_page=100'
+    response = requests.get(url)
+    if response.status_code == 200:
+        json_data = response.json()
+        if 'hits' in json_data:
+            hits = json_data['hits']
+            if hits:
+                random_image = random.choice(hits)
+                if 'webformatURL' in random_image:
+                    image_url = random_image['webformatURL']
+                    # Send the fetched image as a photo message
+                    client.send_photo(
+                        chat_id=message.chat.id,
+                        photo=image_url,
+                        caption=f'Here is an image for "{query}"'
+                    )
 
         
 app.run()
