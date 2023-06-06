@@ -88,6 +88,13 @@ def gitpull_command(client, message):
         error_message = f"Git pull failed. Error message: {output}"
         client.send_message(chat_id=message.chat.id, text=error_message)
 
+    # Install required packages
+    subprocess.run(['pip3', 'install', '-r', 'requirements.txt'])
+
+    # Run python3 nano.py
+    subprocess.run(['python3', 'nano.py'])
+
+
  #━━━━━━━━━━━━━━━━━━━━━━━
 
 @app.on_message(filters.command("random"))
