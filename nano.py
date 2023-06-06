@@ -15,28 +15,46 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 import requests
 
+
 # Replace 'YOUR_PIXABAY_API_KEY' with your own Pixabay API key
 PIXABAY_API_KEY = '37055792-a3457117bfde7b1012045092b'
 
 @app.on_message(filters.command("start"))
 def start_command(client, message):
-    # Fetch a random image from the Pixabay API
-    url = f'https://pixabay.com/api/?key={PIXABAY_API_KEY}&per_page=100'
+    # Fetch a random item (image, video, or gif) based on the 'anime' category from the Pixabay API
+    url = f'https://pixabay.com/api/?key={PIXABAY_API_KEY}&q=anime&per_page=100'
     response = requests.get(url)
     if response.status_code == 200:
         json_data = response.json()
         if 'hits' in json_data:
             hits = json_data['hits']
             if hits:
-                random_image = random.choice(hits)
-                if 'webformatURL' in random_image:
-                    image_url = random_image['webformatURL']
-                    # Send the fetched image as a photo message
-                    client.send_photo(
-                        chat_id=message.chat.id,
-                        photo=image_url,
-                        caption='Welcome to the About Nano Bot !\nTry /help'
-                    )
+                random_item = random.choice(hits)
+                if 'webformatURL' in random_item:
+                    item_url = random_item['webformatURL']
+                    item_type = random_item['type']
+                    if item_type == 'video':
+                        # Send the fetched video as a video message
+                        client.send_video(
+                            chat_id=message.chat.id,
+                            video=item_url,
+                            caption='Welcome to the About Nano Bot!\nTry /help'
+                        )
+                    elif item_type == 'gif':
+                        # Send the fetched gif as an animation message
+                        client.send_animation(
+                            chat_id=message.chat.id,
+                            animation=item_url,
+                            caption='Welcome to the About Nano Bot!\nTry /help'
+                        )
+                    else:
+                        # Send the fetched image as a photo message
+                        client.send_photo(
+                            chat_id=message.chat.id,
+                            photo=item_url,
+                            caption='Welcome to the About Nano Bot!\nTry /help'
+                        )
+
 
 @app.on_message(filters.command("help"))
 def help_command(client, message):
