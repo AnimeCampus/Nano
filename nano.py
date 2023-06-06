@@ -45,7 +45,8 @@ def help_command(client, message):
                 "/help - Display this help message\n" \
                 "/echo [text] - Echo back the provided text\n" \
                 "/caps [text] - Capitalize the provided text\n" \
-                "/inline - Show an example of an inline keyboard"
+                "/inline - Show an example of an inline keyboard" \
+                "/random - Gen random number "
 
     inline_keyboard = [
         [InlineKeyboardButton("Instagram", url="https://www.instagram.com/itz_kunu_g")],
