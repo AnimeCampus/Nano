@@ -4,3 +4,4 @@ gitpython==3.1.14
 Pillow==8.4.0
 requests
 pyrogram
+python-telegram-bot
