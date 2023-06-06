@@ -95,7 +95,7 @@ def help_command(client, message):
         [InlineKeyboardButton("Instagram", url="https://www.instagram.com/itz_kunu_g")],
         [InlineKeyboardButton("WhatsApp", url="https://wa.me/15614040726")],
         [InlineKeyboardButton("Telegram", url="https://t.me/Anime_Krew")],
-        [InlineKeyboardButton("GitHub", url="https://github.com/Soon")]
+        [InlineKeyboardButton("GitHub", url="https://github.com/")]
     ]
 
     reply_markup = InlineKeyboardMarkup(inline_keyboard)
@@ -181,11 +181,11 @@ def inline_command(client, message):
             ],
             [
                 InlineKeyboardButton("Ego", callback_data="btn3"),
-                InlineKeyboardButton("Button 4", callback_data="btn4")
+                InlineKeyboardButton("Server", callback_data="btn4")
             ]
         ]
     )
-    client.send_message(chat_id=message.chat.id, text="Inline Keyboard Example:", reply_markup=keyboard)
+    client.send_message(chat_id=message.chat.id, text="My All Bot List More Bot Coming Soon:", reply_markup=keyboard)
 
 
 @app.on_callback_query()
@@ -197,9 +197,9 @@ def handle_callback(client, callback_query):
     elif data == "btn2":
         client.send_message(chat_id=message.chat.id, text="ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs. ʙᴏᴛ : @TheKomi_Bot")
     elif data == "btn3":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 3")
+        client.send_message(chat_id=message.chat.id, text="ᴀ sɪᴍᴘʟᴇ ғɪʟᴇ ʀᴇɴᴀᴍᴇ + ғɪʟᴇ ᴛᴏ ᴠɪᴅᴇᴏ ᴄᴏɴᴠᴇʀᴛᴇʀ ʙᴏᴛ ᴡɪᴛʜ ᴘᴇʀᴍᴀɴᴇɴᴛ ᴛʜᴜᴍʙɴᴀɪʟ & ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ sᴜᴘᴘᴏʀᴛ : @JinpachiEgo_RenameBot")
     elif data == "btn4":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 4")
+        client.send_message(chat_id=message.chat.id, text="I deployed All bots in vps Or 24/7 working bots")
 
         
 import requests
