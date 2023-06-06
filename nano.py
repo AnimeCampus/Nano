@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 
 # Join event handler
-@bot.on_message(filters.new_chat_members)
+@app.on_message(filters.new_chat_members)
 def welcome_message(client, message: Message):
     chat_id = message.chat.id
     user_ids = [user.id for user in message.new_chat_members]
