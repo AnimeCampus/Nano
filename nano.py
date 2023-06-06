@@ -1,7 +1,7 @@
 import os
 import requests
 from pyrogram import Client, filters, idle
-from telegram.ext import Updater, CommandHandler, MessageHandler,
+from telegram.ext import Updater, CommandHandler, MessageHandler
 
 
 # Initialize the Telegram bot
