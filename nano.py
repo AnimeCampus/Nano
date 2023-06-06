@@ -38,21 +38,45 @@ def start_command(client, message):
                         client.send_video(
                             chat_id=message.chat.id,
                             video=item_url,
-                            caption='Welcome to the About Nano Bot!\nTry /help'
+                            caption="""➖➖➖➖➖➖➖➖➖➖➖➖
+🟢ɴᴀᴍᴇ : Nano 
+🟢ᴜꜱᴇʀɴᴀᴍᴇ : @SexyNano 
+🟢ᴜꜱᴇʀ ɪᴅ : 6198858059 
+🟢ʙᴅᴀy : 𝟶𝟹 ᴊᴜɴᴇ 
+🟢ᴀɢᴇ :  18+
+🟢ꜰʀᴏᴍ : ᴍᴀʜᴀʀᴀsʜᴛʀᴀ 
+➖➖➖➖➖➖➖➖➖➖➖➖
+ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ ᴄʟɪᴄᴋ ʜᴇʀᴇ /help"""
                         )
                     elif item_type == 'gif':
                         # Send the fetched gif as an animation message
                         client.send_animation(
                             chat_id=message.chat.id,
                             animation=item_url,
-                            caption='Welcome to the About Nano Bot!\nTry /help'
+                            caption="""➖➖➖➖➖➖➖➖➖➖➖➖
+🟢ɴᴀᴍᴇ : Nano 
+🟢ᴜꜱᴇʀɴᴀᴍᴇ : @SexyNano 
+🟢ᴜꜱᴇʀ ɪᴅ : 6198858059 
+🟢ʙᴅᴀy : 𝟶𝟹 ᴊᴜɴᴇ 
+🟢ᴀɢᴇ :  18+
+🟢ꜰʀᴏᴍ : ᴍᴀʜᴀʀᴀsʜᴛʀᴀ 
+➖➖➖➖➖➖➖➖➖➖➖➖
+ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ ᴄʟɪᴄᴋ ʜᴇʀᴇ /help"""
                         )
                     else:
                         # Send the fetched image as a photo message
                         client.send_photo(
                             chat_id=message.chat.id,
                             photo=item_url,
-                            caption='Welcome to the About Nano Bot!\nTry /help'
+                            caption="""➖➖➖➖➖➖➖➖➖➖➖➖
+🟢ɴᴀᴍᴇ : Nano 
+🟢ᴜꜱᴇʀɴᴀᴍᴇ : @SexyNano 
+🟢ᴜꜱᴇʀ ɪᴅ : 6198858059 
+🟢ʙᴅᴀy : 𝟶𝟹 ᴊᴜɴᴇ 
+🟢ᴀɢᴇ :  18+
+🟢ꜰʀᴏᴍ : ᴍᴀʜᴀʀᴀsʜᴛʀᴀ 
+➖➖➖➖➖➖➖➖➖➖➖➖
+ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ ᴄʟɪᴄᴋ ʜᴇʀᴇ /help"""
                         )
                     
 
