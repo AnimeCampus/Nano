@@ -288,7 +288,7 @@ def apply_font_style(text, font_style):
 
 
 # Handler for new chat members
-@app.on_message(pyrogram.filters.new_chat_members)
+@app.on_message(filters.new_chat_members)
 def welcome_new_members(client, message):
     chat_id = message.chat.id
     welcome_image_url = "https://my-flask-app.herokuapp.com/welcome_image.jpg"
