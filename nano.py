@@ -291,12 +291,12 @@ def apply_font_style(text, font_style):
 @app.on_message(filters.new_chat_members)
 def welcome_new_members(client, message):
     chat_id = message.chat.id
-    welcome_image_url = "https://my-flask-app.herokuapp.com/welcome_image.jpg"
+    welcome_image_url = "https://graph.org/file/5150888e4063675f2a0c7.jpg"
 
     # Download the welcome image
     response = requests.get(welcome_image_url)
     if response.status_code == 200:
-        with open("welcome_image.jpg", "wb") as file:
+        with open("https://graph.org/file/5150888e4063675f2a0c7.jpg", "wb") as file:
             file.write(response.content)
     else:
         print("Failed to download the welcome image")
@@ -304,7 +304,7 @@ def welcome_new_members(client, message):
     # Send the welcome message with the image
     sent_message = client.send_photo(
         chat_id=chat_id,
-        photo="welcome_image.jpg",
+        photo="https://graph.org/file/5150888e4063675f2a0c7.jpg",
         caption="Welcome to the group!"
     )
     # Reply to the new members' message with the welcome message
