@@ -176,11 +176,11 @@ def inline_command(client, message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Ken ", callback_data="btn1"),
-                InlineKeyboardButton("Button 2", callback_data="btn2")
+                InlineKeyboardButton("Ken Kaneki", callback_data="btn1"),
+                InlineKeyboardButton("Komi", callback_data="btn2")
             ],
             [
-                InlineKeyboardButton("Button 3", callback_data="btn3"),
+                InlineKeyboardButton("Ego", callback_data="btn3"),
                 InlineKeyboardButton("Button 4", callback_data="btn4")
             ]
         ]
@@ -193,9 +193,9 @@ def handle_callback(client, callback_query):
     data = callback_query.data
     message = callback_query.message
     if data == "btn1":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 1")
+        client.send_message(chat_id=message.chat.id, text="ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs. ʙᴏᴛ : @Ken_Kaneki_ProBot")
     elif data == "btn2":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 2")
+        client.send_message(chat_id=message.chat.id, text="ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs. ʙᴏᴛ : @TheKomi_Bot")
     elif data == "btn3":
         client.send_message(chat_id=message.chat.id, text="You clicked button 3")
     elif data == "btn4":
