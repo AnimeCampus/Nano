@@ -302,12 +302,18 @@ def welcome_new_members(client, message):
         print("Failed to download the welcome image")
 
     # Send the welcome message with the image
-    client.send_photo(
+    sent_message = client.send_photo(
         chat_id=chat_id,
         photo="welcome_image.jpg",
-        caption="Welcome to the group!",
-        reply_to_message_id=message.message_id
+        caption="Welcome to the group!"
     )
+    # Reply to the new members' message with the welcome message
+    client.reply_to_message(
+        chat_id=chat_id,
+        message_id=message.message_id,
+        reply_to_message_id=sent_message.message_id
+    )
+
 
 
         
