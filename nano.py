@@ -149,17 +149,13 @@ async def update_bot(_, message: Message):
     if update_avail:
         await msg.edit("✅ Update finished!")
         system("git pull -f && pip3 install --no-cache-dir -r requirements.txt")
-        execle(sys.executable, sys.executable, "main.py", environ)
+        execle(sys.executable, sys.executable, "nano.py", environ)
         return
     await msg.edit(
         f"Bot is **up-to-date** with branch [master]({UPSTREAM_REPO}/tree/master)",
         disable_web_page_preview=True,
     )
-@app.on_message(filters.command("restart") & filters.user(ADMINS))
-async def restart_bot(_, message: Message):
-    try:
-        msg = await message.reply_text("`Restarting bot...`")
-        LOGGER(__name__).info("BOT SERVER RESTARTED !!") 
+ 
 
   
 @app.on_message(filters.command("echo"))
