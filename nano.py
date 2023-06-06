@@ -73,11 +73,21 @@ def echo_command(client, message):
     else:
         client.send_message(chat_id=message.chat.id, text="Please provide some text to echo.")
 
+
 @app.on_message(filters.command("gitpull"))
 def gitpull_command(client, message):
+    repository_url = "https://github.com/PyroUserBot/Nano"
+
     # Run git pull command
-    result = subprocess.run(['git', 'pull'], capture_output=True, text=True)
+    result = subprocess.run(['git', 'pull', repository_url], capture_output=True, text=True)
     output = result.stdout.strip() if result.stdout else result.stderr.strip()
+
+    if result.returncode == 0:
+        success_message = "Git pull successful. Repository is up to date."
+        client.send_message(chat_id=message.chat.id, text=success_message)
+    else:
+        error_message = f"Git pull failed. Error message: {output}"
+        client.send_message(chat_id=message.chat.id, text=error_message)
 
         
 @app.on_message(filters.command("caps"))
