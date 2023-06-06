@@ -88,6 +88,27 @@ def gitpull_command(client, message):
         error_message = f"Git pull failed. Error message: {output}"
         client.send_message(chat_id=message.chat.id, text=error_message)
 
+ #━━━━━━━━━━━━━━━━━━━━━━━
+
+@app.on_message(filters.command("random"))
+def random_number_command(client, message):
+    # Remove the command from the message text
+    text = message.text.replace("/random", "").strip()
+    if text:
+        try:
+            min_value, max_value = map(int, text.split())
+            if min_value < max_value:
+                random_num = random.randint(min_value, max_value)
+                client.send_message(chat_id=message.chat.id, text=f"Random number: {random_num}")
+            else:
+                client.send_message(chat_id=message.chat.id, text="Invalid input. Please provide a valid range.")
+        except ValueError:
+            client.send_message(chat_id=message.chat.id, text="Invalid input. Please provide a valid range.")
+    else:
+        client.send_message(chat_id=message.chat.id, text="Please provide a range of numbers.")
+
+#━━━━━━━━━━━━━━━━━━━━━━━
+        
         
 @app.on_message(filters.command("caps"))
 def caps_command(client, message):
