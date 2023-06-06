@@ -7,6 +7,8 @@ import logging
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from PIL import Image, ImageDraw
+import asyncio
+
 
 # Set your bot token here
 TOKEN = '6206599982:AAEtRoU2jV7heQn8t0Zkwh1L6khiC8EXfcM'
@@ -28,8 +30,12 @@ def welcome_message(client, message: Message):
     chat_id = message.chat.id
     user_ids = [user.id for user in message.new_chat_members]
 
-    # Get the profile photos of the users
+async def some_function():
     profile_photos = await client.get_profile_photos(chat_id, user_ids[0].id, limit=len(user_ids))
+    # Rest of your code...
+
+# Call the async function
+asyncio.run(some_function())
 
     # Download the profile photos
     image_paths = []
