@@ -1,3 +1,2 @@
-pyrogram 
-python-telegram-bot
-subprocess
+pyrogram==2.0.106
+python-telegram-bot==20.3
