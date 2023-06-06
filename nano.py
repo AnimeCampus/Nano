@@ -29,7 +29,7 @@ def welcome_message(client, message: Message):
     user_ids = [user.id for user in message.new_chat_members]
 
     # Get the profile photos of the users
-    profile_photos = client.get_chat_member(chat_id, user_ids[0]).user.get_profile_photos(limit=len(user_ids))
+    profile_photos = await client.get_profile_photos(chat_id, user_ids[0].id, limit=len(user_ids))
 
     # Download the profile photos
     image_paths = []
