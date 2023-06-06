@@ -8,6 +8,16 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from PIL import Image, ImageDraw
 
+# Set your bot token here
+TOKEN = '6206599982:AAEtRoU2jV7heQn8t0Zkwh1L6khiC8EXfcM'
+
+# Replace 'YOUR_API_ID' and 'YOUR_API_HASH' with your own API credentials
+API_ID = '16743442'
+API_HASH = '12bbd720f4097ba7713c5e40a11dfd2a'
+
+app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+
+
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -60,14 +70,6 @@ def welcome_message(client, message: Message):
 
 
 
-# Set your bot token here
-TOKEN = '6206599982:AAEtRoU2jV7heQn8t0Zkwh1L6khiC8EXfcM'
-
-# Replace 'YOUR_API_ID' and 'YOUR_API_HASH' with your own API credentials
-API_ID = '16743442'
-API_HASH = '12bbd720f4097ba7713c5e40a11dfd2a'
-
-app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 
 import requests
