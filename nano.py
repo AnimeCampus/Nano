@@ -37,8 +37,6 @@ def start_command(client, message):
                         caption='Welcome to the Telegram Bot!\nTry /help'
                     )
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-
 @app.on_message(filters.command("help"))
 def help_command(client, message):
     help_text = "Available commands:\n\n" \
@@ -63,6 +61,7 @@ def help_command(client, message):
 
     client.send_message(chat_id=message.chat.id, text=help_text, reply_markup=reply_markup)
 
+    
 
 @app.on_message(filters.command("echo"))
 def echo_command(client, message):
