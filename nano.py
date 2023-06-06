@@ -46,7 +46,7 @@ def search_gif(keyword):
 
     data = response.json()
 
-    gif_url = data["data"]["image_original_url"]
+    gif_url = data["data"].get("image_original_url", "Default URL")
 
     return gif_url
 
