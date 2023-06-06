@@ -37,6 +37,8 @@ def start_command(client, message):
                         caption='Welcome to the Telegram Bot!\nTry /help'
                     )
 
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+
 @app.on_message(filters.command("help"))
 def help_command(client, message):
     help_text = "Available commands:\n\n" \
@@ -50,27 +52,16 @@ def help_command(client, message):
                 "/caps [text] - Capitalize the provided text\n" \
                 "/inline - Show an example of an inline keyboard"
 
-    client.send_message(chat_id=message.chat.id, text=help_text)
+    inline_keyboard = [
+        [InlineKeyboardButton("Instagram", url="https://www.instagram.com/itz_kunu_g")],
+        [InlineKeyboardButton("WhatsApp", url="https://wa.me/15614040726")],
+        [InlineKeyboardButton("Telegram", url="https://t.me/Anime_Krew")],
+        [InlineKeyboardButton("GitHub", url="https://github.com/Soon")]
+    ]
 
+    reply_markup = InlineKeyboardMarkup(inline_keyboard)
 
-@app.on_message(filters.command("instagram"))
-def instagram_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Follow us on Instagram: @itz_kunu_g")
-
-
-@app.on_message(filters.command("whatsapp"))
-def whatsapp_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Contact us on WhatsApp: +15614040726")
-
-
-@app.on_message(filters.command("telegram"))
-def telegram_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Join our Telegram group: t.me/Anime_Krew")
-
-
-@app.on_message(filters.command("github"))
-def github_command(client, message):
-    client.send_message(chat_id=message.chat.id, text="Check out our GitHub repository: github.com/Soon")
+    client.send_message(chat_id=message.chat.id, text=help_text, reply_markup=reply_markup)
 
 
 @app.on_message(filters.command("echo"))
