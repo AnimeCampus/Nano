@@ -89,7 +89,8 @@ def help_command(client, message):
                 "/caps [text] - Capitalize the provided text\n" \
                 "/mybots - Show an my bots\n" \
                 "/random - Gen random number\n" \
-                "/img [text] - Gen image through api"
+                "/img [text] - Gen image through api\n" \
+                "/convert [txt] - Gen Cool font"
 
     inline_keyboard = [
         [InlineKeyboardButton("Instagram", url="https://www.instagram.com/itz_kunu_g")],
@@ -229,6 +230,60 @@ def send_image(client, message):
                         photo=image_url,
                         caption=f'Here is an image for "{query}"'
                     )
+
+# List of font styles
+font_styles = [
+    "𝐒𝐭𝐲𝐥𝐞 𝟏",
+    "𝑆𝑡𝑦𝑙𝑒 𝟐",
+    "𝑺𝒕𝒚𝒍𝒆 𝟑",
+    "𝓢𝓽𝔂𝓵𝓮 𝟒",
+    "𝔖𝔱𝔶𝔩𝔢 𝟝",
+    "𝕊𝕥𝕪𝕝𝕖 𝟞",
+    "𝗦𝘁𝘆𝗹𝗲 𝟟",
+    "𝘚𝘵𝘺𝘭𝘦 𝟠",
+    "𝙎𝙩𝙮𝙡𝙚 𝟡",
+    "𝒮𝓉𝓎𝓁𝑒 𝟙𝟘"
+]
+
+
+# Handler for the /convert command
+@app.on_message(filters.command("convert"))
+def convert_command(client, message):
+    reply_markup = create_keyboard()
+    message.reply_text(
+        "Please select a font style:",
+        reply_markup=reply_markup
+    )
+
+# Handler for inline keyboard button presses
+@app.on_callback_query()
+def callback_query(client, callback_query):
+    style_index = int(callback_query.data.split("_")[1])
+    font_style = font_styles[style_index - 1]
+    text = callback_query.message.reply_to_message.text
+    converted_text = apply_font_style(text, font_style)
+    callback_query.edit_message_text(
+        f"Converted text: {converted_text}"
+    )
+
+# Function to create the inline keyboard
+def create_keyboard():
+    keyboard = []
+    for index, style in enumerate(font_styles):
+        callback_data = f"style_{index + 1}"
+        button = InlineKeyboardButton(style, callback_data=callback_data)
+        keyboard.append([button])
+    return InlineKeyboardMarkup(keyboard)
+
+# Function to apply the font style to the text
+def apply_font_style(text, font_style):
+    converted_text = ""
+    for char in text:
+        if char.isalpha():
+            converted_text += font_style + char + font_style
+        else:
+            converted_text += char
+    return converted_text
 
         
 app.run()
