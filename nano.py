@@ -84,7 +84,7 @@ app = Client("my_bot")
 
 # Replace 'YOUR_ADMINS_LIST' with a list of user IDs of the bot admins
 
-ADMINS = [123456789, 987654321]
+ADMINS = [6198858059]
 
 UPSTREAM_REPO = "https://github.com/PyroUserBot/Nano"
 
@@ -121,80 +121,45 @@ def gen_chlog(repo, diff):
         return str(ch + ch_log), str(ch_tl + tldr_log)
 
     return ch_log, tldr_log
-
 def updater():
-
     try:
-
         repo = Repo()
 
     except InvalidGitRepositoryError:
 
         repo = Repo.init()
-
         origin = repo.create_remote("upstream", UPSTREAM_REPO)
-
         origin.fetch()
-
         repo.create_head("master", origin.refs.master)
-
         repo.heads.master.set_tracking_branch(origin.refs.master)
-
         repo.heads.master.checkout(True)
-
     ac_br = repo.active_branch.name
-
     if "upstream" in repo.remotes:
-
         ups_rem = repo.remote("upstream")
-
     else:
-
         ups_rem = repo.create_remote("upstream", UPSTREAM_REPO)
-
     ups_rem.fetch(ac_br)
-
     changelog, tl_chnglog = gen_chlog(repo, f"HEAD..upstream/{ac_br}")
-
     return bool(changelog)
-
 @app.on_message(filters.command("update") & filters.user(ADMINS))
-
 async def update_bot(_, message: Message):
-
     chat_id = message.chat.id
-
     msg = await message.reply_text("Checking updates...")
-
     update_avail = updater()
-
     if update_avail:
-
         await msg.edit("✅ Update finished!")
-
         system("git pull -f && pip3 install --no-cache-dir -r requirements.txt")
-
         execle(sys.executable, sys.executable, "main.py", environ)
-
         return
-
     await msg.edit(
-
         f"Bot is **up-to-date** with branch [master]({UPSTREAM_REPO}/tree/master)",
-
         disable_web_page_preview=True,
-
     )
-
 @app.on_message(filters.command("restart") & filters.user(ADMINS))
-
 async def restart_bot(_, message: Message):
-
     try:
-
         msg = await message.reply_text("`Restarting bot...`")
-
-        LOGGER(__name__).info("BOT SERVER RESTARTED !!
+        LOGGER(__name__).info("BOT SERVER RESTARTED !!") 
 
   
     
