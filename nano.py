@@ -87,8 +87,9 @@ def help_command(client, message):
                 "/help - Display this help message\n" \
                 "/echo [text] - Echo back the provided text\n" \
                 "/caps [text] - Capitalize the provided text\n" \
-                "/inline - Show an example of an inline keyboard" \
-                "/random - Gen random number "
+                "/mybots - Show an my bots\n" \
+                "/random - Gen random number\n" \
+                "/img [text] - Gen image through api"
 
     inline_keyboard = [
         [InlineKeyboardButton("Instagram", url="https://www.instagram.com/itz_kunu_g")],
@@ -170,12 +171,12 @@ def caps_command(client, message):
         client.send_message(chat_id=message.chat.id, text="Please provide some text to capitalize.")
 
 
-@app.on_message(filters.command("inline"))
+@app.on_message(filters.command("mybots"))
 def inline_command(client, message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Button 1", callback_data="btn1"),
+                InlineKeyboardButton("Ken ", callback_data="btn1"),
                 InlineKeyboardButton("Button 2", callback_data="btn2")
             ],
             [
