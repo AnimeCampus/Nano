@@ -1,7 +1,7 @@
 import os
 import requests
 from pyrogram import Client, filters, idle
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram import Updater, CommandHandler, MessageHandler, Filters
 
 # Initialize the Telegram bot
 bot_token = "6206599982:AAEtRoU2jV7heQn8t0Zkwh1L6khiC8EXfcM"
