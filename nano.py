@@ -47,7 +47,7 @@ def start_command(client, message):
                             animation=item_url,
                             caption='Welcome to the About Nano Bot!\nTry /help'
                         )
-                     else:
+                    else:
                         # Send the fetched image as a photo message
                         client.send_photo(
                             chat_id=message.chat.id,
