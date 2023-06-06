@@ -285,6 +285,31 @@ def apply_font_style(text, font_style):
             converted_text += char
     return converted_text
 
+
+
+# Handler for new chat members
+@app.on_message(pyrogram.filters.new_chat_members)
+def welcome_new_members(client, message):
+    chat_id = message.chat.id
+    welcome_image_url = "https://my-flask-app.herokuapp.com/welcome_image.jpg"
+
+    # Download the welcome image
+    response = requests.get(welcome_image_url)
+    if response.status_code == 200:
+        with open("welcome_image.jpg", "wb") as file:
+            file.write(response.content)
+    else:
+        print("Failed to download the welcome image")
+
+    # Send the welcome message with the image
+    client.send_photo(
+        chat_id=chat_id,
+        photo="welcome_image.jpg",
+        caption="Welcome to the group!",
+        reply_to_message_id=message.message_id
+    )
+
+
         
 app.run()
 print("bot started....")
