@@ -150,30 +150,15 @@ def handle_callback(client, callback_query):
     data = callback_query.data
     message = callback_query.message
     if data == "btn1":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 1") 
+        client.send_message(chat_id=message.chat.id, text="You clicked button 1")
+    elif data == "btn2":
+        client.send_message(chat_id=message.chat.id, text="You clicked button 2")
+    elif data == "btn3":
+        client.send_message(chat_id=message.chat.id, text="You clicked button 3")
+    elif data == "btn4":
+        client.send_message(chat_id=message.chat.id, text="You clicked button 4")
 
-@app.on_callback_query()
-def handle_callback(client, callback_query):
-    data = callback_query.data
-    message = callback_query.message
-    if data == "btn2":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 2") 
 
-        
-@app.on_callback_query()
-def handle_callback(client, callback_query):
-    data = callback_query.data
-    message = callback_query.message
-    if data == "btn3":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 3") 
-     
-@app.on_callback_query()
-def handle_callback(client, callback_query):
-    data = callback_query.data
-    message = callback_query.message
-    if data == "btn4":
-        client.send_message(chat_id=message.chat.id, text="You clicked button 4") 
-        
         
 app.run()
 print("bot started....")
