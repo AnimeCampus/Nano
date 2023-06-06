@@ -35,7 +35,7 @@ def start_command(client, message):
                     client.send_photo(
                         chat_id=message.chat.id,
                         photo=image_url,
-                        caption='Welcome to the Telegram Bot!\nTry /help'
+                        caption='Welcome to the About Nano Bot !\nTry /help'
                     )
 
 @app.on_message(filters.command("help"))
