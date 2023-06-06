@@ -34,9 +34,6 @@ async def some_function():
     profile_photos = await client.get_profile_photos(chat_id, user_ids[0].id, limit=len(user_ids))
     # Rest of your code...
 
-# Call the async function
-asyncio.run(some_function())
-
     # Download the profile photos
     image_paths = []
     for index, photo in enumerate(profile_photos.photos):
