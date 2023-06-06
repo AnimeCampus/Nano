@@ -72,7 +72,13 @@ def echo_command(client, message):
     else:
         client.send_message(chat_id=message.chat.id, text="Please provide some text to echo.")
 
+@app.on_message(filters.command("gitpull"))
+def gitpull_command(client, message):
+    # Run git pull command
+    result = subprocess.run(['git', 'pull'], capture_output=True, text=True)
+    output = result.stdout.strip() if result.stdout else result.stderr.strip()
 
+        
 @app.on_message(filters.command("caps"))
 def caps_command(client, message):
     # Remove the command from the message text
