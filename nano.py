@@ -162,8 +162,6 @@ async def restart_bot(_, message: Message):
         LOGGER(__name__).info("BOT SERVER RESTARTED !!") 
 
   
-    
-
 @app.on_message(filters.command("echo"))
 def echo_command(client, message):
     # Remove the command from the message text
