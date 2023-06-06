@@ -131,6 +131,11 @@ def random_number_command(client, message):
 
 #━━━━━━━━━━━━━━━━━━━━━━━
         
+@app.on_message(filters.command)
+def unknown_command(client, message):
+    client.send_message(chat_id=message.chat.id, text="I'm sorry, that command is not recognized. Please try again or use /help for a list of available commands.")
+   
+    
         
 @app.on_message(filters.command("caps"))
 def caps_command(client, message):
