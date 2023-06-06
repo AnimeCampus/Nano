@@ -61,7 +61,7 @@ def welcome_message(client, message: Message):
 
 
 # Set your bot token here
-TOKEN = '6206599982:AAG374J4c9eb0v2-3cbDMq4yjj97PuMIyB0'
+TOKEN = '6206599982:AAEtRoU2jV7heQn8t0Zkwh1L6khiC8EXfcM'
 
 # Replace 'YOUR_API_ID' and 'YOUR_API_HASH' with your own API credentials
 API_ID = '16743442'
