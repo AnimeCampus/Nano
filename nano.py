@@ -8,7 +8,7 @@ from pyrogram import Client, filters, idle
 
 # Set up your OpenAI API credentials
 
-openai.api_key = 'YOUR_OPENAI_API_KEY'
+openai.api_key = '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'
 
 # Set up your Telegram Bot API credentials
 
