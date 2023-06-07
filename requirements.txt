@@ -5,3 +5,6 @@ Pillow==8.4.0
 requests
 pyrogram
 python-telegram-bot
+pyrogram==1.4.2
+openai==0.30.0
+
