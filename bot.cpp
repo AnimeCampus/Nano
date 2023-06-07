@@ -6,7 +6,7 @@ void sendWelcomeMessage(td::Client& client, int64_t chatId) {
   // Prepare the input message content
   auto inputMessageContent =
       td::make_tl_object<td::td_api::inputMessagePhoto>(
-          td::make_tl_object<td::td_api::inputFileLocal>("image.jpg"),
+          td::make_tl_object<td::td_api::inputFileLocal>("360_F_87970620_Tdgw6WYdWnrZHn2uQwJpVDH4vr4PINSc.jpg"),
           td::make_tl_object<td::td_api::formattedText>(
               "<b>Welcome to the bot!</b>\n\n"
               "Thank you for joining. Enjoy your time here!",
