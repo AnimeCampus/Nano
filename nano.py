@@ -66,4 +66,4 @@ def fun_command(client, message):
 
 # Start the bot
 bot.start()
-bot.idle()
+idle()
